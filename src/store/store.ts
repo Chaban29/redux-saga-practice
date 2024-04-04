@@ -1,7 +1,7 @@
 import { Reducer, applyMiddleware, createStore } from 'redux';
 import { rootReducer } from '../rootReducer/rootReducer';
 import createSagaMiddleware from 'redux-saga';
-import { countWatcher } from '../saga/countSaga';
+import { rootWatcher } from '../saga';
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -10,4 +10,4 @@ export const store = createStore(
   applyMiddleware(sagaMiddleware)
 );
 
-sagaMiddleware.run(countWatcher);
+sagaMiddleware.run(rootWatcher);
